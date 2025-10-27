@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Enerji - Yönetim Paneli</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content center-align">
+    <a href="https://www.mkotomasyon.com.tr" target="_blank" class="header-link">
+        <h1><span class="golden-text">MK Enerji</span> Sevkiyat Takibi</h1>
+        <p class="subtitle">MeteContent</p> 
+    </a>
+</div>
+        
+        <nav class="admin-nav-menu">
+            <button id="menu-toggle" class="menu-toggle-btn">
+                <i class="fa-solid fa-bars"></i> 
+            </button>
+
+            <div id="dropdown-menu" class="dropdown-content">
+    <a href="index.html" class="button secondary-button">Anasayfa</a>
+    <a href="settings.html" id="settings-link" class="button secondary-button">Ayarlar</a> 
+<a href="users.html" id="user-management-link" class="button secondary-button" style="display:none;">Kullanıcı Yönetimi</a>
+    <button id="logout-button" class="button secondary-button">Çıkış Yap</button>
+</div>
+        </nav>
+    </header>
+
+    <main>
+        
+        <h2>Yeni Sevkiyat Kaydı / Düzenleme</h2>
+        <form id="sevkiyat-formu">
+            <label for="sevkiyatKodu">Sevkiyat Kodu <span class="required-indicator">*</span></label>
+            <input type="text" id="sevkiyatKodu" required placeholder="Örn: MK2025001">
+            <span class="error-message" id="error-sevkiyatKodu"></span>
+
+            <label for="plaka">Plaka <span class="required-indicator">*</span></label>
+            <input type="text" id="plaka" required placeholder="Örn: 34 ABC 123">
+            <span class="error-message" id="error-plaka"></span>
+
+            <label for="teslimEden">Teslim Eden (Şoför) <span class="required-indicator">*</span></label>
+            <input type="text" id="teslimEden" required placeholder="Ad Soyad">
+            <span class="error-message" id="error-teslimEden"></span>
+
+            <label for="teslimAlan">Teslim Alan (Firma/Kişi) <span class="required-indicator">*</span></label>
+            <input type="text" id="teslimAlan" required placeholder="Firma Adı veya Yetkili Kişi">
+            <span class="error-message" id="error-teslimAlan"></span>
+
+            <label for="tarih">Teslimat Tarihi <span class="required-indicator">*</span></label>
+            <input type="date" id="tarih" required>
+            <span class="error-message" id="error-tarih"></span>
+
+            <label for="telefon">Telefon Numarası</label>
+            <input type="tel" id="telefon" placeholder="5xx xxx xx xx">
+            <span class="error-message" id="error-telefon"></span>
+
+            <label for="gorseller">Teslimat Görselleri (Max 4 Adet, Min 1 Adet) <span class="required-indicator">*</span></label> 
+            <input type="file" id="gorseller" name="gorseller" multiple accept="image/*">
+            <span class="error-message" id="error-gorseller"></span>
+
+            <div class="gorsel-galeri" id="gorsel-onizleme">
+                </div>
+
+            <button type="submit" id="submit-btn" class="primary-button">Sevkiyatı Kaydet</button>
+            <button type="button" class="secondary-button" onclick="resetFormToCreateMode()">Temizle</button>
+        </form>
+        
+        <hr>
+
+        <h2>Kayıtlı Sevkiyatlar Yönetimi</h2>
+
+        <div class="table-tools">
+            <input type="text" id="aramaInput" placeholder="Kod, Plaka veya Teslim Alan'da Ara...">
+            <button id="export-csv-btn" class="secondary-button">CSV İndir</button>
+            <button id="export-excel-btn" class="secondary-button">Excel İndir</button>
+        </div>
+
+        <div id="sevkiyat-listesi-konteyner">
+            <table id="sevkiyat-tablosu">
+                <thead>
+                    <tr>
+                        <th>Kod</th>
+                        <th>Plaka</th>
+                        <th>Teslim Eden</th>
+                        <th>Tarih</th>
+                        <th class="action-column">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+        
+    </main>
+
+    <div id="sevkiyat-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-body">
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+    Tüm hakları <span class="golden-text" style="font-weight: bold;">MeteContent</span>'e aittir. &copy; 2025
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

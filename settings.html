@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Enerji - Kullanıcı Ayarları</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content center-align">
+    <a href="https://www.mkotomasyon.com.tr" target="_blank" class="header-link">
+        <h1><span class="golden-text">MK Enerji</span> Sevkiyat Takibi</h1>
+        <p class="subtitle">MeteContent</p> 
+    </a>
+</div>
+        <nav>
+            <a href="admin.html" class="button secondary-button">Yönetim Paneline Dön</a>
+            <button id="logout-button" class="button primary-button" style="margin-left: 10px;">Çıkış Yap</button>
+        </nav>
+    </header>
+
+    <main class="login-container" style="max-width: 600px;">
+        <h2>Kullanıcı Bilgileri ve Ayarları</h2>
+        
+        <form id="settings-formu">
+            <label for="settingsAd">Ad:</label>
+            <input type="text" id="settingsAd" required>
+            <span class="error-message" id="error-settingsAd"></span>
+
+            <label for="settingsSoyad">Soyad:</label>
+            <input type="text" id="settingsSoyad" required>
+            <span class="error-message" id="error-settingsSoyad"></span>
+
+            <label for="settingsEmail">E-posta (Kullanıcı Adı):</label>
+            <input type="email" id="settingsEmail" disabled style="background-color: var(--color-input-disabled); color: var(--color-text-medium);">
+
+            <label for="settingsTelefon">Telefon Numarası:</label>
+            <input type="tel" id="settingsTelefon" required>
+            <span class="error-message" id="error-settingsTelefon"></span>
+
+            <hr style="margin: 25px 0;">
+
+            <h3>Şifre Güncelleme</h3>
+            <label for="settingsNewSifre">Yeni Şifre (Değiştirmek istemiyorsanız boş bırakın):</label>
+            <input type="password" id="settingsNewSifre" placeholder="En az 6 karakter">
+            <span class="error-message" id="error-settingsNewSifre"></span>
+
+            <button type="submit" class="primary-button">Bilgileri Güncelle</button>
+        </form>
+    </main>
+
+    <footer>
+    Tüm hakları <span class="golden-text" style="font-weight: bold;">MeteContent</span>'e aittir. &copy; 2025
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

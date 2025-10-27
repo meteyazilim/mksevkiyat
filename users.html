@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Enerji - Kullanıcı Yönetimi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content center-align">
+    <a href="https://www.mkotomasyon.com.tr" target="_blank" class="header-link">
+        <h1><span class="golden-text">MK Enerji</span> Sevkiyat Takibi</h1>
+        <p class="subtitle">MeteContent</p> 
+    </a>
+</div>
+        <nav>
+            <a href="admin.html" class="button secondary-button">Yönetim Paneline Dön</a>
+            <button id="logout-button" class="button primary-button" style="margin-left: 10px;">Çıkış Yap</button>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Sisteme Kayıtlı Kullanıcılar</h2>
+        
+        <div id="user-listesi-konteyner">
+            <table id="user-tablosu">
+                <thead>
+                    <tr>
+                        <th>E-posta</th>
+                        <th>Ad Soyad</th>
+                        <th>Telefon</th>
+                        <th class="action-column">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody id="user-tablosu-body">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+    Tüm hakları <span class="golden-text" style="font-weight: bold;">MeteContent</span>'e aittir. &copy; 2025
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

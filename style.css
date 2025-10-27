@@ -1,0 +1,631 @@
+/* =======================================
+   Genel Ayarlar ve Tema Renkleri
+   ======================================= */
+:root {
+    --color-primary: #FF5733; /* Turuncu/Kırmızı Butonlar */
+    --color-secondary: #4a4a4a; /* İkincil Butonlar ve Vurgu */
+    --color-background-dark: #1e1e1e; /* Koyu Arka Plan */
+    --color-background-medium: #2c2c2c; /* Kart/Form Arka Planı */
+    --color-background-secondary: #333333; /* Menü/Header Arka Planı */
+    --color-text-light: #f0f0f0; /* Açık Metin (Genel) */
+    --color-text-medium: #aaaaaa; /* Orta Tonlu Metin (Alt Başlıklar) */
+    --color-input-disabled: #3d3d3d; /* Devre Dışı Input Rengi */
+    --color-success: #4CAF50; /* Başarı Rengi */
+    --color-error: #f44336; /* Hata Rengi */
+    --color-border: #505050; /* Sınır Çizgisi Rengi */
+    --border-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+
+/* =======================================
+   HEADER ve BAŞLIK STİLLERİ
+   ======================================= */
+header {
+    background-color: var(--color-background-secondary);
+    border-bottom: 3px solid var(--color-primary);
+    padding: 15px 30px;
+    
+    /* Buton ve Başlıkların Hizalanması */
+    display: flex;
+    justify-content: space-between; /* İçerik ve nav'ı iki yana yaslar */
+    align-items: center; /* Dikeyde ortalar */
+    flex-wrap: wrap; 
+}
+
+/* Başlık alanını kapsayan div */
+header .header-content {
+    flex-grow: 1; /* Ortadaki boşluğu doldurur */
+    text-align: center; /* Başlık metnini ortalar */
+}
+
+/* Başlık linkini sarmalayan kısım (Alt çizgisini kaldırır) */
+.header-link {
+    text-decoration: none;
+    color: inherit; /* Rengi üst etiketten (h1) miras alır */
+    display: block; 
+}
+
+/* Başlık linkinin altında çizgi olmasın (kesin kural) */
+.header-content a.header-link {
+    text-decoration: none !important;
+}
+.header-content a.header-link:hover {
+    text-decoration: none !important;
+}
+
+/* Üzerine gelindiğinde hafif şeffaflık */
+.header-link:hover h1 {
+    opacity: 0.9;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+header .subtitle {
+    font-size: 0.85em;
+    color: var(--color-text-medium);
+    margin-top: 0;
+}
+
+/* Altın Sarısı Renk Tanımı (MK Enerji için) */
+.golden-text {
+    color: #FFC300; 
+}
+
+/* Navigasyon (Büyük ekran butonları) */
+header nav {
+    flex-shrink: 0; /* Küçülmez, sağda kalır */
+}
+
+header nav .button {
+    margin-left: 10px;
+}
+
+/* Hamburger menü butonu sadece admin sayfasında görünecek, burada gizliyoruz */
+.admin-nav-menu {
+    display: none;
+}
+
+/* =======================================
+   ADMIN SAYFASINA ÖZEL HEADER/MENÜ STİLLERİ
+   ======================================= */
+.admin-nav-menu {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+}
+
+.menu-toggle-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s;
+}
+
+.menu-toggle-btn:hover {
+    background-color: #555555;
+}
+
+/* Açılır Menü İçeriği */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-background-medium); /* Daha koyu arka plan */
+    min-width: 200px; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1000; 
+    
+    /* Menünün sağa yaslanması ve açılması */
+    right: 0; 
+    top: 55px; /* header yüksekliğine göre ayarlandı */
+    
+    border-radius: var(--border-radius);
+    overflow: hidden; 
+    
+    /* İçindeki linkleri DİKEY SIRALA VE SAĞA HİZALA */
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+}
+
+.dropdown-content.show {
+    display: flex; 
+}
+
+/* Menü içindeki link ve butonların stili */
+.dropdown-content a, 
+.dropdown-content button {
+    color: var(--color-text-light);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%; 
+    text-align: right; /* Metni sağa hizalar */
+    border: none;
+    background-color: var(--color-background-medium); 
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold; 
+    border-bottom: 1px solid var(--color-border);
+}
+
+.dropdown-content a:hover, 
+.dropdown-content button:hover {
+    background-color: #444444;
+}
+
+/* Son elemanın alt çizgisini kaldır */
+.dropdown-content a:last-child,
+.dropdown-content button:last-child {
+    border-bottom: none;
+}
+
+/* =======================================
+   FOOTER STİLİ
+   ======================================= */
+footer {
+    text-align: center; 
+    padding: 10px 20px;
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-medium);
+    font-size: 0.9em;
+    border-top: 1px solid var(--color-border);
+    margin-top: 30px; /* Üstten boşluk bırak */
+}
+
+/* Footer'daki linklerin alt çizgisini kaldırır */
+footer a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+/* Üzerine gelindiğinde alt çizgi olmamasını sağlar */
+footer a:hover {
+    text-decoration: none; 
+    opacity: 0.9;
+}
+
+
+/* =======================================
+   MAIN İÇERİK ve KAPSAYICILAR
+   ======================================= */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.login-container, #sevkiyat-formu {
+    background-color: var(--color-background-medium);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: var(--color-text-light);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+}
+
+h3 {
+    color: var(--color-text-light);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+
+/* =======================================
+   FORM VE INPUT STİLLERİ
+   ======================================= */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-text-light);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    font-size: 1em;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="file"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+/* Devre dışı inputlar */
+input:disabled {
+    background-color: var(--color-input-disabled) !important;
+    color: var(--color-text-medium) !important;
+    cursor: not-allowed;
+}
+
+/* Zorunlu alan işareti */
+.required-indicator {
+    color: var(--color-primary);
+    margin-left: 3px;
+}
+
+
+/* =======================================
+   BUTON STİLLERİ
+   ======================================= */
+.button, 
+button[type="submit"], 
+button[type="button"] {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-right: 10px; /* Butonlar arası boşluk */
+}
+
+.primary-button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+}
+
+.primary-button:hover {
+    background-color: #e64a19; /* Biraz daha koyu turuncu */
+}
+
+.secondary-button {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-border);
+}
+
+.secondary-button:hover {
+    background-color: #5a5a5a;
+}
+
+.delete-button {
+    background-color: var(--color-error);
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+
+/* =======================================
+   HATA MESAJLARI VE DİĞER BİLGİLER
+   ======================================= */
+.error-message {
+    display: block;
+    color: var(--color-error);
+    font-size: 0.9em;
+    margin-top: 5px;
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear, height 0.3s;
+}
+
+.error-message.show {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    margin-bottom: 15px;
+}
+
+.not-found {
+    padding: 20px;
+    background-color: #333333;
+    border-left: 5px solid var(--color-error);
+    margin-top: 20px;
+    border-radius: var(--border-radius);
+}
+
+
+/* =======================================
+   TABLO VE LİSTE STİLLERİ (admin.html)
+   ======================================= */
+#sevkiyat-listesi-konteyner, #user-listesi-konteyner {
+    overflow-x: auto; /* Küçük ekranlarda tabloyu kaydırmayı sağlar */
+    background-color: var(--color-background-medium);
+    border-radius: var(--border-radius);
+    padding: 15px;
+}
+
+#sevkiyat-tablosu, #user-tablosu {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    min-width: 600px; /* Tablonun çok küçülmesini engeller */
+}
+
+#sevkiyat-tablosu thead th, #user-tablosu thead th {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--color-border);
+}
+
+#sevkiyat-tablosu tbody td, #user-tablosu tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-light);
+    vertical-align: middle;
+}
+
+#sevkiyat-tablosu tbody tr:hover {
+    background-color: #383838;
+}
+
+.action-column {
+    width: 250px; /* İşlem sütununu geniş tutarız */
+    text-align: center;
+}
+
+.action-buttons button {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    min-width: 70px;
+}
+
+/* Arama ve Export Araçları */
+.table-tools {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.table-tools input[type="text"] {
+    flex-grow: 1;
+    min-width: 200px;
+    margin-top: 0;
+}
+
+.table-tools button {
+    margin-top: 0;
+}
+
+/* =======================================
+   GÖRSEL ÖNİZLEME VE MODAL STİLLERİ
+   ======================================= */
+.gorsel-galeri {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--border-radius);
+}
+
+.gorsel-galeri img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid var(--color-text-light);
+    cursor: zoom-in;
+}
+
+/* Modal Arka Planı */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1001; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8); 
+    padding-top: 60px;
+}
+
+/* Modal İçeriği */
+.modal-content {
+    background-color: var(--color-background-medium);
+    margin: 5% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 800px;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.modal-content h2 {
+    border-bottom-color: var(--color-secondary);
+}
+
+.modal-content .gorsel-galeri {
+    border: none;
+    padding: 0;
+    justify-content: center;
+}
+
+.modal-content .gorsel-galeri img {
+    width: 48%; /* Geniş ekranda ikişerli gösterme */
+    max-height: 300px;
+    margin-bottom: 10px;
+}
+
+
+/* Kapatma Butonu (Modal) */
+.close-btn {
+    color: var(--color-text-medium);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--color-text-light);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* =======================================
+   DİKEY ÇİZGİ STİLİ
+   ======================================= */
+
+hr {
+    border: none; 
+    border-top: 1px solid var(--color-border); 
+    margin: 20px 0; 
+}
+
+
+/* =======================================
+   RESPONSIVE DÜZENLEMELER
+   ======================================= */
+@media (max-width: 768px) {
+    /* Genel Header Düzenlemesi */
+    header {
+        flex-direction: column; 
+        padding: 15px 15px;
+        align-items: flex-start; /* Başlık sola yaslanır */
+    }
+
+    header .header-content {
+        text-align: left; /* Başlık metnini sola yasla */
+    }
+
+    header .header-content.center-align {
+        text-align: center; /* Merkezi başlık stilini koru */
+        width: 100%;
+        order: 1; /* Ortada kalması için sıralama */
+    }
+    
+    header nav {
+        width: 100%;
+        margin-top: 10px;
+        order: 3; /* En alta gitsin (Hamburger menü için) */
+        justify-content: space-around;
+    }
+    
+    /* Admin Paneli İçin Ek Düzenleme */
+    header .admin-nav-menu {
+        order: 2; /* Hamburger menüyü sağa yaslı tutmak için */
+        margin-left: auto; /* Sağ tarafa it */
+    }
+
+    /* Modal Görsel Boyutu */
+    .modal-content .gorsel-galeri img {
+        width: 90%; 
+        max-height: none;
+    }
+    
+    /* Arama ve Butonlar */
+    .table-tools {
+        flex-direction: column;
+    }
+    
+    .table-tools button {
+        width: 100%;
+    }
+}
+/* ========================================================= */
+/* NAVİGASYON VE DROPDOWN MENÜ STİLLERİ (admin.html için) */
+/* ========================================================= */
+
+.admin-nav-menu {
+    /* Menü butonunu ve menüyü kapsayan alan */
+    position: relative; /* Dropdown menünün bu alana göre konumlanması için */
+}
+
+#dropdown-menu {
+    /* Menünün varsayılan kapalı hali */
+    position: absolute;
+    top: 100%; /* Navigasyonun hemen altına konumlandır */
+    right: 0; /* Sağa yasla */
+    z-index: 1000; /* Diğer elementlerin üzerinde görünmesini sağla */
+    
+    /* BAŞLANGIÇTA KAPALI VE GEÇİŞ */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px); /* Hafif yukarıdan gelsin (isteğe bağlı) */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Yumuşak geçiş */
+    
+    /* Görünüm */
+    min-width: 200px;
+    background-color: var(--color-background-light); /* Arkaplan rengi */
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 10px 0;
+    border-radius: var(--border-radius);
+}
+
+#dropdown-menu.show {
+    /* JS ile 'show' sınıfı eklendiğinde açılacak hali */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#dropdown-menu a {
+    /* Menü içindeki linkler */
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--color-text);
+    white-space: nowrap; /* Metnin tek satırda kalmasını sağlar */
+}
+
+#dropdown-menu a:hover {
+    background-color: var(--color-hover);
+}

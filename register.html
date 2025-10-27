@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Enerji - Kullanıcı Kayıt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content center-align">
+    <a href="https://www.mkotomasyon.com.tr" target="_blank" class="header-link">
+        <h1><span class="golden-text">MK Enerji</span> Sevkiyat Takibi</h1>
+        <p class="subtitle">MeteContent</p> 
+    </a>
+</div>
+        <nav>
+            <a href="login.html" class="button secondary-button">Girişe Dön</a>
+        </nav>
+    </header>
+
+    <main class="login-container">
+        <h2>Yeni Kullanıcı Kaydı</h2>
+        <form id="register-formu">
+            <label for="regAd">Ad <span class="required-indicator">*</span></label>
+            <input type="text" id="regAd" required placeholder="Adınız">
+
+            <label for="regSoyad">Soyad <span class="required-indicator">*</span></label>
+            <input type="text" id="regSoyad" required placeholder="Soyadınız">
+
+            <label for="regEmail">E-posta (Kullanıcı Adı) <span class="required-indicator">*</span></label>
+            <input type="email" id="regEmail" required placeholder="Geçerli bir e-posta adresi">
+            <span class="error-message" id="error-regEmail"></span>
+
+            <label for="regTelefon">Telefon Numarası <span class="required-indicator">*</span></label>
+            <input type="tel" id="regTelefon" required placeholder="5xx-xxx-xx-xx">
+
+            <label for="regSifre">Şifre <span class="required-indicator">*</span></label>
+            <input type="password" id="regSifre" required placeholder="En az 6 karakter">
+
+            <button type="submit" class="primary-button">Kaydı Tamamla</button>
+        </form>
+    </main>
+
+    <footer>
+    Tüm hakları <span class="golden-text" style="font-weight: bold;">MeteContent</span>'e aittir. &copy; 2025
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
